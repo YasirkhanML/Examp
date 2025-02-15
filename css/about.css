@@ -1,0 +1,39 @@
+body {
+    background-color: #f8f9fa;
+}
+.container {
+    margin-top: 20px;
+}
+.card {
+    transition: 0.3s;
+}
+.card:hover {
+    transform: scale(1.05);
+}
+
+
+/* footer */
+footer {
+    background: linear-gradient(rgb(68, 68, 97), rgb(151, 105, 105));
+    color: rgb(251, 255, 0);
+    font-size: large;
+    text-align: center;
+    margin-top: 15px;
+    padding: 20px 0;
+  }
+  
+  footer .btn-link i {
+    color: white; /* Default icon color */
+    font-size: 1.5rem; /* Adjust icon size */
+    transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+  }
+  
+  footer .btn-link:hover i {
+    color: yellow; /* Change color on hover */
+    transform: scale(1.1); /* Slight zoom effect */
+  }
+  
+  footer .text-center {
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 10px;
+  }
