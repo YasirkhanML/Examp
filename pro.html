@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+    // function greet() {
+    //     console.log("Hello! This message appears after 3 seconds.");
+    // }
+
+    // setTimeout(greet, 3000);
+
+
+    // function greetUser(name) {
+    // console.log("Hello, " + name + "! Welcome to JavaScript.");
+    // }
+
+    // setTimeout(greetUser, 4000, "Ali"); 
+
+
+    // function myfun() {
+    // let now = new Date();
+    // console.log("Current Time: " + now.toLocaleTimeString());
+    // }
+    // setInterval(myfun, 5000); 
+
+
+    // function countDown() {
+    // console.log("Hello, this message repeats every second!");
+    // }
+
+    // let intervalId = setInterval(countDown, 2000); // Runs every 1 second
+
+    // setTimeout(function () {
+    //     clearInterval(intervalId); // Stops the interval after 10 seconds
+    //     console.log("Interval stopped!");
+    // }, 10000);
+
+
+    //  make a code for asynochorms
+
+    // console.log('this is first line')
+    // console.log('this is second line')
+    // console.log('this is 333 line')
+
+    // setTimeout(function() {
+    //     console.log('this is after the time out set seconds')
+    // }, 2000)
+
+    // console.log('this is 4444')
+    // console.log('this is 5555')
+
+    function first(second){
+        console.log('first function')
+        second();
+    }
+    first(second)
+
+    function second(){
+        setTimeout (() =>{
+            console.log('second function');
+          
+        },3000)
+       
+    }
+    // second(first);
+
+   
+
+    
+    </script>
+</body>
+</html>

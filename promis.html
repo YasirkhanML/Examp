@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+// function asyncFunc() {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             console.log("data1");
+//             resolve("success");
+//         }, 4000);
+//     });
+// }
+
+// console.log("fetching data1...");
+// let p1 = asyncFunc();
+// p1.then((res) => {
+//     console.log(res);
+//     console.log("fetching data2...");
+//     let p2 = asyncFunc2();
+//     p2.then((res) => {
+//         console.log(res);
+//     });
+// });
+
+
+// function asyncFunc2(){
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             console.log("data2");
+//             resolve("success");
+//         }, 3000);
+//     });
+// }
+
+// console.log("fetching data2...");
+// let p2 = asyncFunc2();
+// p2.then((res) => {
+//     console.log(res);
+// });
+
+// let myPromise1 = new Promise((resolve, reject) => {
+//     let pizzaReady = false; // Now, pizza is NOT ready
+
+//     if (pizzaReady) {
+//         resolve("Pizza is ready! 🍕");
+//     } else {
+//         reject("Sorry, no pizza today. 😞");
+//     }
+// });
+
+// // Using the promise
+// myPromise1
+//     .then(result => console.log(result))  // Runs if resolved
+//     .catch(error => console.log(error));  // Runs if rejected
+
+
+
+
+
+
+
+// let myPromise = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         let pizzaReady = false;
+//         if (pizzaReady) {
+//             resolve("Pizza is ready! 🍕");
+//         } else {
+//             reject("Sorry, no pizza today. 😞");
+//         }
+//     }, 3000); // Wait for 3 seconds
+// });
+
+// myPromise
+//     .then(result => console.log(result))  
+//     .catch(error => console.log(error));
+
+
+
+    let myPromise = new Promise((resolve, reject) => {
+    let pizzaReady = false; // Initially, pizza is NOT ready
+
+    let checkPizza = setInterval(() => {
+        console.log("Checking if pizza is ready...");
+
+        if (pizzaReady) {
+            clearInterval(checkPizza); // Stop checking once pizza is ready
+            resolve("Pizza is ready! 🍕");
+        }
+    }, 2000); // Check every 2 seconds
+
+    // Simulating pizza being ready after 6 seconds
+    setTimeout(() => {
+        pizzaReady = true;
+    }, 6000);
+
+    // If pizza is not ready after 10 seconds, reject it
+    setTimeout(() => {
+        if (!pizzaReady) {
+            clearInterval(checkPizza); // Stop checking
+            reject("Sorry, no pizza today. 😞");
+        }
+    }, 10000);
+});
+
+// Using the promise
+myPromise
+    .then(result => console.log(result))  // Runs if resolved
+    .catch(error => console.log(error));  // Runs if rejected
+
+
+
+
+
+    </script>
+</body>
+</html>

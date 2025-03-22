@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+// make a code for function parameter 
+
+//  we want use callback function
+
+function first(){
+    console.log('First function');
+}
+
+function second(){
+    console.log('Second function');
+}
+
+function parent(a, b, fir, sec){
+    console.log(`this is call back function ${a} and that is ${b}`)
+    fir();
+    sec();
+}
+parent('hello','world',first,second)
+
+// we can use arrow function also
+
+parent('hello','world',()=>console.log('First function'),()=>console.log('Second function'))
+
+// if we want to use arrow function and call back function as a parameter
+
+
+parent('hello','world',()=>console.log('First function'),()=>console.log('Second function'))
+
+// if we want to pass function as a parameter and call it later
+
+function myFunction(callback){
+    console.log('I am function')
+    callback()
+}
+
+myFunction(()=>console.log('I am callback function'))
+
+// if we want to pass function as a parameter and call it later and pass argument
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        .gallery-container {
+            padding: 20px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery-container">
+        <div class="gallery" id="gallery">
+            <!-- Images will be added here dynamically -->
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        // Sample image data (you can replace these with your own images)
+        const images = [
+            { src: 'https://picsum.photos/id/1/800/600', alt: 'Image 1' },
+            { src: 'https://picsum.photos/id/2/800/600', alt: 'Image 2' },
+            { src: 'https://picsum.photos/id/3/800/600', alt: 'Image 3' },
+            { src: 'https://picsum.photos/id/4/800/600', alt: 'Image 4' },
+            { src: 'https://picsum.photos/id/5/800/600', alt: 'Image 5' },
+            { src: 'https://picsum.photos/id/6/800/600', alt: 'Image 6' }
+        ];
+
+        // Get DOM elements
+        const gallery = document.getElementById('gallery');
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const closeBtn = document.getElementsByClassName('close')[0];
+
+        // Create gallery items
+        images.forEach(image => {
+            const galleryItem = document.createElement('div');
+            galleryItem.className = 'gallery-item';
+            
+            const img = document.createElement('img');
+            img.src = image.src;
+            img.alt = image.alt;
+            
+            galleryItem.appendChild(img);
+            gallery.appendChild(galleryItem);
+
+            // Add click event to open modal
+            galleryItem.onclick = function() {
+                modal.style.display = "block";
+                modalImg.src = image.src;
+            }
+        });
+
+        // Close modal when clicking the × button
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Close modal when clicking outside the image
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>
